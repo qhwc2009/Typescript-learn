@@ -51,12 +51,12 @@ interface IUserObj {
 export const userObjArr: IUserObj = { name: '20' };
 
 // 类类型接口  约束 类
-interface Animal {
+interface IAnimal {
   name: string;
   eat(str: string): void;
 }
 
-export class Dog implements Animal {
+export class Dog implements IAnimal {
   name: string;
   constructor(name: string) {
     this.name = name;
@@ -67,4 +67,21 @@ export class Dog implements Animal {
   }
 }
 
+export interface IPerson extends IAnimal {
+  work(): void;
+}
 
+export class Weber implements IPerson {
+  public name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  eat() {
+    console.log('喜欢吃馒头');
+  }
+
+  work() {
+    console.log('写代码');
+  }
+}
